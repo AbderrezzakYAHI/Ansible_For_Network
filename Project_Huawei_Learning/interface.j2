@@ -1,0 +1,6 @@
+{% for val in vlan %}
+interface LoopBack{{val}} 
+{% for ip in ip_switches %}
+  ip address {{ip}} 255.255.255.0
+{% endfor %}
+{% endfor %}

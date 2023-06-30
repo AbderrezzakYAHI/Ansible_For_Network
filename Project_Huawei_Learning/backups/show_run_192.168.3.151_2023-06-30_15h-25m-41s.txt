@@ -1,0 +1,36 @@
+*down: administratively down
+!down: FIB overload down
+^down: standby
+(l): loopback
+(s): spoofing
+(d): Dampening Suppressed
+(E): E-Trunk down
+The number of interface that is UP in Physical is 23
+The number of interface that is DOWN in Physical is 0
+The number of interface that is UP in Protocol is 13
+The number of interface that is DOWN in Protocol is 10
+
+Interface                         IP Address/Mask      Physical   Protocol VPN 
+Ethernet1/0/0                     192.168.3.151/24     up         up       --  
+Ethernet1/0/0.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/1                     unassigned           up         down     --  
+Ethernet1/0/1.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/2                     unassigned           up         down     --  
+Ethernet1/0/2.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/3                     unassigned           up         down     --  
+Ethernet1/0/3.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/4                     unassigned           up         down     --  
+Ethernet1/0/4.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/5                     unassigned           up         down     --  
+Ethernet1/0/5.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/6                     unassigned           up         down     --  
+Ethernet1/0/6.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/7                     unassigned           up         down     --  
+Ethernet1/0/7.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/8                     unassigned           up         down     --  
+Ethernet1/0/8.4094                128.1.138.137/16     up         up       l3vpn
+Ethernet1/0/9                     unassigned           up         down     --  
+Ethernet1/0/9.4094                128.1.138.137/16     up         up       l3vpn
+GigabitEthernet0/0/0              unassigned           up         down     --  
+LoopBack2147483647                128.1.138.137/16     up         up(s)    l3vpn
+NULL0                             unassigned           up         up(s)    --

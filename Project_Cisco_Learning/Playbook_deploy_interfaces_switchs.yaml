@@ -1,0 +1,36 @@
+---
+- name: AUTOMATIC BACK OF RUNNING-CONFIG
+  hosts: switch
+  gather_facts: false
+  connection: local
+
+  vars: 
+   ansible_user: "cisco" 
+   ansible_password: "c1sco"
+   vlan:
+      - 10
+   ip_switches : 
+      - 192.168.100.101
+
+  tasks:
+   - name: DISPLAYING THE RUNNING-CONFIG
+     ios_command:
+       commands:
+         - show ip int br 
+     register: config
+     
+   - name: SAVE OUTPUT TO ./backups/
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "backups/show_run_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+
+   - name: GENERATING INTERFACE, AND VLAN CONFIGURATION
+     template:
+       src: "interface.j2"
+       dest: "backups/{{ inventory_hostname}}_interface"
+
+   - name: PUSHING CONFIGURATION INTO SWITCHS
+     ios_config:
+       src: "backups/{{ inventory_hostname}}_interface"
+...
+

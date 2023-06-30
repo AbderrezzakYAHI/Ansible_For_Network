@@ -1,0 +1,24 @@
+---
+- name: AUTOMATIC BACK OF RUNNING-CONFIG
+  hosts: CSR1kv
+  gather_facts: false
+  connection: local
+
+  vars: 
+   ansible_user: "cisco" 
+   ansible_password: "c1sco"
+
+  tasks:
+   - name: DISPLAYING THE RUNNING-CONFIG
+     ios_command:
+       commands:
+         - show ip int br 
+     register: config
+     
+   - name: SAVE OUTPUT TO ./backups/
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "backups/show_run_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+
+...
+
