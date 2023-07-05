@@ -18,7 +18,7 @@
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
-       dest: "backups/show_run_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+       dest: "backups/show_port_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
 
    - name: enable rollback location
      sros_config:
