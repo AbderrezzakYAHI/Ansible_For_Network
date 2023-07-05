@@ -1,0 +1,28 @@
+===============================================================================
+Ports on Slot 1
+===============================================================================
+Port        Admin Link Port    Cfg  Oper LAG/ Port Port Port   C/QS/S/XFP/
+Id          State      State   MTU  MTU  Bndl Mode Encp Type   MDIMDX
+-------------------------------------------------------------------------------
+1/1/1       Up    Yes  Up      8936 8936    - netw null xcme   GIGE-LX  10KM
+1/1/2       Down  No   Down    8936 8936    - netw null xcme   GIGE-LX  10KM
+1/1/3       Down  No   Down    8936 8936    - netw null xcme   GIGE-LX  10KM
+1/1/4       Down  No   Down    8936 8936    - netw null xcme   GIGE-LX  10KM
+1/1/5       Down  No   Down    8936 8936    - netw null xcme   GIGE-LX  10KM
+
+===============================================================================
+Ports on Slot A
+===============================================================================
+Port        Admin Link Port    Cfg  Oper LAG/ Port Port Port   C/QS/S/XFP/
+Id          State      State   MTU  MTU  Bndl Mode Encp Type   MDIMDX
+-------------------------------------------------------------------------------
+A/1         Up    Yes  Up      1514 1514    - netw null faste  MDI
+
+===============================================================================
+Ports on Slot B
+===============================================================================
+Port        Admin Link Port    Cfg  Oper LAG/ Port Port Port   C/QS/S/XFP/
+Id          State      State   MTU  MTU  Bndl Mode Encp Type   MDIMDX
+-------------------------------------------------------------------------------
+B/1         Up    No   Ghost   1514 1514    - netw null faste  
+===============================================================================

@@ -1,0 +1,27 @@
+---
+- name: AUTOMATIC BACK OF RUNNING-CONFIG
+  hosts: NOKIA
+  gather_facts: false
+  connection: local
+
+  vars: 
+   ansible_user: "admin" 
+   ansible_password: "admin"
+
+  tasks:
+   - name: DISPLAYING THE RUNNING-CONFIG
+     sros_command:
+       commands:
+         - show port  
+     register: config
+     
+   - name: SAVE OUTPUT TO ./backups/
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "backups/show_run_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+
+   - name: enable rollback location
+     sros_config:
+       lines: /configure port 1/1/1 description "TO_US-WEST"
+...
+
