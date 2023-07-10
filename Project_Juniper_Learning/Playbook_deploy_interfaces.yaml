@@ -11,15 +11,16 @@
   tasks:
    - name: run show version on remote devices
      junos_command:
-       commands: show interfaces
+       commands: show version
+       wait_for: result[O] in juniper
      
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
        dest: "backups/show_port_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
 
-   - name: configure description on port
+   - name: configure ip address in ge-0/0/1
      junos_config:
-       lines: /configure port 1/1/1 description "TO_US-WEST"
+       lines: set interfaces ge-0/0/1 unit 0 family inet 10.2.2.3/31
 ...
 
