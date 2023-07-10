@@ -12,12 +12,12 @@
    - name: run show version on remote devices
      junos_command:
        commands: show version
-       wait_for: result[O] in juniper
+       wait_for: result[O] contains Juniper
      
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
-       dest: "backups/show_port_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+       dest: "backups/show_version_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
 
    - name: configure ip address in ge-0/0/1
      junos_config:
