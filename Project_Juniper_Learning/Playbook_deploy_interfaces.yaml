@@ -19,7 +19,7 @@
        content: "{{ config.stdout[0] }}"
        dest: "backups/show_version_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
 
-   - name: configure ip address in ge-0/0/1
+   - name: configure ip address interfa ge-0/0/1
      junos_config:
        lines: set interfaces ge-0/0/1 unit 0 family inet 10.2.2.3/31
 ...
