@@ -1,7 +1,0 @@
-{% for val in vlan %}
-interface vlan {{val}} 
-{% for ip in ip_switches %}
-  ip address {{ip}} 255.255.255.0
-  no shutdown
-{% endfor %}
-{% endfor %}

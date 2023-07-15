@@ -11,16 +11,13 @@
   tasks:
    - name: run show version on remote devices
      junos_command:
-       commands: show version
-       wait_for: result[O] contains Juniper
+       commands: "show interface terse"
+     register: config
      
    - name: SAVE OUTPUT TO ./backups/
      copy:
        content: "{{ config.stdout[0] }}"
        dest: "backups/show_version_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
 
-   - name: configure ip address interfa ge-0/0/1
-     junos_config:
-       lines: set interfaces ge-0/0/1 unit 0 family inet 10.2.2.3/31
 ...
 
