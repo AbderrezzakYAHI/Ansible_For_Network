@@ -1,0 +1,19 @@
+---
+- name: "Getting info from FORTIGATE V7.0 with ansible in EVE-NG"
+  hosts: fortigate
+  gather_facts: no
+  vars:
+    ansible_user: "admin"
+    ansible_password: "admin"
+
+  tasks:
+    - name: Display network interface configuration
+      ansible.builtin.raw: "get system interface physical"
+      register: cli_output
+
+    - name: Save output to a local file
+      delegate_to: localhost
+      ansible.builtin.copy:
+        content: "{{ cli_output.stdout }}"
+        dest: "./backups/get_system_{{ inventory_hostname }}_{{ '%Y-%m-%d_%Hh-%Mm-%Ss' | strftime }}.txt"
+...

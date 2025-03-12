@@ -1,0 +1,27 @@
+FW3_GATE # == [onboard]
+	==[port1]
+		mode: dhcp
+		ip: 192.168.3.187 255.255.255.0
+		ipv6: ::/0
+		status: up
+		speed: 10000Mbps (Duplex: full)
+	==[port2]
+		mode: static
+		ip: 0.0.0.0 0.0.0.0
+		ipv6: ::/0
+		status: up
+		speed: 10000Mbps (Duplex: full)
+	==[port3]
+		mode: static
+		ip: 0.0.0.0 0.0.0.0
+		ipv6: ::/0
+		status: up
+		speed: 10000Mbps (Duplex: full)
+	==[port4]
+		mode: static
+		ip: 0.0.0.0 0.0.0.0
+		ipv6: ::/0
+		status: up
+--More--          		speed: 10000Mbps (Duplex: full)
+
+FW3_GATE # 
